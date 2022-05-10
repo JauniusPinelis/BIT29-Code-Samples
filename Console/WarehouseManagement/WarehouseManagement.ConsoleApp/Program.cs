@@ -7,10 +7,10 @@ namespace WarehouseManagement.ConsoleApp
     {
         static void Main(string[] args)
         {
+            var applicationService = new ApplicationService();
+
             while (true)
             {
-                var applicationService = new ApplicationService();
-
                 Console.WriteLine("Enter your command:");
                 var command = Console.ReadLine();
 
