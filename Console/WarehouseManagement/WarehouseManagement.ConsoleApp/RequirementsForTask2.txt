@@ -1,0 +1,34 @@
+﻿Creating a shop application with following commands:
+
+New Solution please (.NET 6 preferrable)
+
+
+System should allow the following commands:
+"Add <ShopItemName> <Price> <quantity>" -> Should add the following item
+"Remove <ShopItemName>" -> Should remove the following item.
+"Show inventory" -> Should Display the following items. (name and quantities)
+"Set <ShopItemName> <quantity>" -> should update the quantity of the item
+
+Customer by default has 20 euros (balance)
+
+"Show balance" -> Should display the balance of the customer.
+
+"Topup <sum>" -> Should top the customer's balance.
+
+"Show items" -> Should display the names of bought items
+
+"Buy <ShopItemName> <Quantity>" - If user has enough money and the shop has enough items
+	update the Customer balance. 
+
+Display different erorr messages:
+"Customer does not have enough funds",
+"shop item is not found",
+"The command was not recognized"
+
+
+1. Additional Requirements:
+	Your program should not crash when wrong item name or incorrect command is executed.
+	(Try using Try/Catch)
+	https://www.tutorialsteacher.com/csharp/csharp-exception-handling
+2. Push your program to github.
+3. Handle "case sensitice". For example "buy" or "topup"
