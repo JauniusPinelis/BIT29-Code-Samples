@@ -23,7 +23,6 @@ namespace ShopSolution.ConsoleApp.Services
                 }
                 else if (command.StartsWith("remove"))
                 {
-
                     _shopService.Remove(parameters[1]);
                 }
                 else if (command.StartsWith("show inventory"))
