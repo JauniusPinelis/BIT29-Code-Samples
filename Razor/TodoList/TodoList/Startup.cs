@@ -20,9 +20,7 @@ namespace TodoList
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<TodosService>();
-            services.AddTransient<FakeService>();
-            services.AddTransient<Fake2Service>();
+            services.AddSingleton<TodosService>(); //Where we hold info, we register as singleton
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -32,5 +32,11 @@ namespace TodoList.Controllers
             _todosService.Add(todo);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(string name)
+        {
+            _todosService.Delete(name);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TodoList.Models;
 
 namespace TodoList.Services
 {
     public class TodosService
     {
-        private FakeService _fakeService;
-
-        public TodosService(FakeService fakeService)
+        public TodosService()
         {
-            _fakeService = fakeService;
         }
 
         private List<Todo> _todos = new List<Todo>()
@@ -36,6 +34,11 @@ namespace TodoList.Services
         public void Add(Todo todo)
         {
             _todos.Add(todo);
+        }
+
+        public void Delete(string name)
+        {
+            _todos = _todos.Where(t => t.Name != name).ToList();
         }
     }
 }
