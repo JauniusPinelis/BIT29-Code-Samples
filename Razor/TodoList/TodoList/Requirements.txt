@@ -1,0 +1,18 @@
+﻿Please Create a new solution of Asp.net core MVC web app project.
+
+You will be creating a Shop management application:
+
+Main requirements:
+
+The application should have 2 pages:
+List ShopItems -> Should List all items in a nicely formatted table.
+Add ShopItem -> Should be able to add a new items (it should display to index after).
+In 'List ShopItems' you should able to delete.
+
+ShopItems should have name, shopName and ExpiryDate.
+
+Addition Requirements:
+1. The 'Add new shopitem' form should use bootstrap and be nicely formatted
+https://getbootstrap.com/docs/4.0/components/forms/
+2. 'Edit ShopItem' functionality:
+	Add new button 'Edit' which is an ActionLink.
