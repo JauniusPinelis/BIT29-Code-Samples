@@ -16,3 +16,4 @@ Addition Requirements:
 https://getbootstrap.com/docs/4.0/components/forms/
 2. 'Edit ShopItem' functionality:
 	Add new button 'Edit' which is an ActionLink.
+3. Study: https://docs.microsoft.com/en-us/ef/core/
