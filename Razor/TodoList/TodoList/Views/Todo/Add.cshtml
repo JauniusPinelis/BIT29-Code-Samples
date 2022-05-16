@@ -1,0 +1,17 @@
+﻿@model Todo
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Add", "Todo", FormMethod.Post))
+{
+    @Html.LabelFor(a => a.Name)
+    @Html.TextBoxFor(a => a.Name)
+
+    @Html.LabelFor(a => a.Category)
+    @Html.TextBoxFor(a => a.Category)
+
+    @Html.LabelFor(a => a.CreatedUtc)
+    @Html.TextBoxFor(a => a.CreatedUtc)
+        
+    <input type="submit" value="Submit"/>
+}
