@@ -14,7 +14,7 @@ ShopItems should have name, shopName and ExpiryDate.
 
 ------------------------------------------------------------
 
-MOdify your application to use SQL server and EF CORE ORM.
+Modify your application to use SQL server and EF CORE ORM.
 
 
 Addition Requirements:
