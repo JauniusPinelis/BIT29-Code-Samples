@@ -23,3 +23,17 @@ https://getbootstrap.com/docs/4.0/components/forms/
 2. 'Edit ShopItem' functionality:
 	Add new button 'Edit' which is an ActionLink.
 3. Study: https://docs.microsoft.com/en-us/ef/core/
+
+
+-----------------------------------------------------------------
+
+Implement the same functionality with Shop.
+Shop should have Name and Id
+You should be able to List, Add, Delete Shop.
+Shop should have a foreign constraint to ShopItem (one - to -many ).
+Shop has many shopitems while shopitem has a single shop.
+
+Additional Requirements:
+1. Implement dropdown in Add ShopItem.
+2. List Shops also should display ShopItems (I leave for you to figure how)
+There should be extra column which displays all shopitems separated by ';'
