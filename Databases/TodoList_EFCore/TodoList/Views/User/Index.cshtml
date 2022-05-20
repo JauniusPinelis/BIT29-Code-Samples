@@ -1,0 +1,28 @@
+﻿@using TodoList.Models
+@model List<User>
+
+<h3>Testing Todos</h3>
+
+<table>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">LastName</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var todo in @Model)
+        {
+        <tr>
+          <th scope="row"></th>
+          <td>@todo.FirstName</td>
+          <td>@todo.LastName</td>
+        </tr>
+        }
+  </tbody>
+</table>

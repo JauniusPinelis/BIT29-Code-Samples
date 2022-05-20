@@ -7,6 +7,8 @@ namespace TodoList.Data
     {
         public DbSet<Todo> Todos { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 

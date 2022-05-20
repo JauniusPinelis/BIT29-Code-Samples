@@ -28,6 +28,7 @@ namespace TodoList
             services.AddDbContext<DataContext>(c => c.UseSqlServer(defaultConnectionString));
 
             services.AddTransient<TodosService>();
+            services.AddTransient<UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

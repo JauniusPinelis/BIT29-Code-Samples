@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TodoList.Models;
+using TodoList.Dtos;
 using TodoList.Services;
 
 namespace TodoList.Controllers
@@ -22,14 +22,14 @@ namespace TodoList.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            Todo todo = new Todo(); //Passing empty model
+            CreateTodoDto todo = new CreateTodoDto(); //Passing empty model
             return View(todo);
         }
 
         [HttpPost]
-        public IActionResult Add(Todo todo)
+        public IActionResult Add(CreateTodoDto createTodo)
         {
-            _todosService.Add(todo);
+            _todosService.Add(createTodo.Todo);
             return RedirectToAction("Index");
         }
 

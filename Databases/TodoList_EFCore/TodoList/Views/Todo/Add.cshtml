@@ -1,17 +1,21 @@
-﻿@model Todo
+﻿@using TodoList.Dtos
+@model CreateTodoDto
 
 <h2>Register</h2>
 
 @using (Html.BeginForm("Add", "Todo", FormMethod.Post))
 {
-    @Html.LabelFor(a => a.Name)
-    @Html.TextBoxFor(a => a.Name)
+    @Html.LabelFor(a => a.Todo.Name)
+    @Html.TextBoxFor(a => a.Todo.Name)
 
-    @Html.LabelFor(a => a.Category)
-    @Html.TextBoxFor(a => a.Category)
+    @Html.LabelFor(a => a.Todo.Category)
+    @Html.TextBoxFor(a => a.Todo.Category)
 
-    @Html.LabelFor(a => a.CreatedUtc)
-    @Html.TextBoxFor(a => a.CreatedUtc)
+    @Html.LabelFor(a => a.Todo.CreatedUtc)
+    @Html.TextBoxFor(a => a.Todo.CreatedUtc)
+
+    @Html.LabelFor(a => a.Todo.UserId)
+    @Html.TextBoxFor(a => a.Todo.UserId)
         
     <input type="submit" value="Submit"/>
 }

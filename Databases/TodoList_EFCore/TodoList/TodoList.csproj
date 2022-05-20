@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\User\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\User\Index.cshtml" />
     <None Include="Views\Todo\Index.cshtml" />
   </ItemGroup>
 
