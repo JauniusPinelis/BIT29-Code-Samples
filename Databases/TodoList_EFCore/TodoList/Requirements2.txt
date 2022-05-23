@@ -1,0 +1,21 @@
+﻿New solution is required:
+
+Solution type: asp.net core web app (MVC)
+
+We are creating Book/Author management application:
+
+Functional Requirements:
+1. Book Should have Id, Name, Author. Be able to Add, Delete books. 
+2. Author should have Id, Name. Be able to Add, Delete Authors.
+3. There should be the following page which lists all the authors in the following format:
+Author Id -> Author Name -> Names of author books (separated by ;)
+4. When Editing a book you should be able to assign the Author.
+5. Adding Author/Book should use bootstrap form as in example.
+
+Non-Functional:
+1. Use EFCore DB.
+
+Additional Requirements: 
+1. Implement many to many relationships with tags: 
+https://www.learnentityframeworkcore.com/configuration/many-to-many-relationship-configuration
+https://stackoverflow.com/questions/17021978/how-to-get-multiselected-dropdownlist-values-in-asp-net-mvc
