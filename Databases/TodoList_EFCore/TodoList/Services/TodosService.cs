@@ -17,7 +17,6 @@ namespace TodoList.Services
 
         public List<Todo> GetAll()
         {
-
             return _dataContext.Todos.ToList();
         }
 

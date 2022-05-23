@@ -7,6 +7,6 @@ namespace TodoList.Dtos
     {
         public Todo Todo { get; set; }
 
-        public List<User> Users { get; set; }
+        public List<UserDto> Users { get; set; }
     }
 }

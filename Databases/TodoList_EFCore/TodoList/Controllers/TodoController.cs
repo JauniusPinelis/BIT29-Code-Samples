@@ -7,10 +7,12 @@ namespace TodoList.Controllers
     public class TodoController : Controller
     {
         private TodosService _todosService;
+        private UserService _userService;
 
-        public TodoController(TodosService todosService)
+        public TodoController(TodosService todosService, UserService userService)
         {
             _todosService = todosService;
+            _userService = userService;
         }
 
         public IActionResult Index()
@@ -23,6 +25,8 @@ namespace TodoList.Controllers
         public IActionResult Add()
         {
             CreateTodoDto todo = new CreateTodoDto(); //Passing empty model
+            todo.Todo = new Models.Todo();
+            todo.Users = _userService.GetAll();
             return View(todo);
         }
 

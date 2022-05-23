@@ -23,7 +23,7 @@
           <th scope="row"></th>
           <td>@todo.Name</td>
           <td>@todo.Category</td>
-          <td>@todo.CreatedUtc</td>
+         @* <td>@todo.CreatedUtc</td>*@
           <td>@Html.ActionLink("Remove", "Delete", "Todo", new { Name = @todo.Name})</td>
         </tr>
         }

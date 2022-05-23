@@ -1,5 +1,5 @@
-﻿@using TodoList.Models
-@model List<User>
+﻿@using TodoList.Dtos
+@model List<UserDto>
 
 <h3>Testing Todos</h3>
 
@@ -10,9 +10,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">LastName</th>
-      
+      <th scope="col">FullName</th>
     </tr>
   </thead>
   <tbody>
@@ -20,8 +18,7 @@
         {
         <tr>
           <th scope="row"></th>
-          <td>@todo.FirstName</td>
-          <td>@todo.LastName</td>
+          <td>@todo.FullName</td>
         </tr>
         }
   </tbody>

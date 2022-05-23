@@ -5,17 +5,25 @@
 
 @using (Html.BeginForm("Add", "Todo", FormMethod.Post))
 {
-    @Html.LabelFor(a => a.Todo.Name)
-    @Html.TextBoxFor(a => a.Todo.Name)
+    <div class="form-group">
+        @Html.LabelFor(a => a.Todo.Name)
+        @Html.TextBoxFor(a => a.Todo.Name, "", new {@class = "form-control"})
+    </div>
 
-    @Html.LabelFor(a => a.Todo.Category)
-    @Html.TextBoxFor(a => a.Todo.Category)
+    <div class="form-group">
+        @Html.LabelFor(a => a.Todo.Category)
+        @Html.TextBoxFor(a => a.Todo.Category, "", new {@class = "form-control"})
+     </div>
 
-    @Html.LabelFor(a => a.Todo.CreatedUtc)
-    @Html.TextBoxFor(a => a.Todo.CreatedUtc)
+      <div class="form-group">
+        @Html.LabelFor(a => a.Todo.CreatedUtc)
+        @Html.TextBoxFor(a => a.Todo.CreatedUtc, new {@class = "form-control"})
+    </div>
 
-    @Html.LabelFor(a => a.Todo.UserId)
-    @Html.TextBoxFor(a => a.Todo.UserId)
+    <div class="form-group">
+        @Html.LabelFor(a => a.Todo.UserId)
+        @Html.DropDownListFor(a => a.Todo.UserId, new SelectList(@Model.Users, "Id", "FullName"), "", new {@class = "form-control"} )
+    </div>
         
-    <input type="submit" value="Submit"/>
+    <input class="btn btn-primary" type="submit" value="Submit"/>
 }

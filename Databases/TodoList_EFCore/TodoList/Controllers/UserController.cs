@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using TodoList.Dtos;
 using TodoList.Models;
 using TodoList.Services;
 
@@ -15,7 +17,7 @@ public class UserController : Controller
 
     public IActionResult Index()
     {
-        var users = _userService.GetAll();
+        List<UserDto> users = _userService.GetAll();
         return View(users);
     }
 
