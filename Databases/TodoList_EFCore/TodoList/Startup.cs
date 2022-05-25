@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TodoList.Data;
+using TodoList.Repositories;
 using TodoList.Services;
 
 namespace TodoList
@@ -29,6 +30,7 @@ namespace TodoList
 
             services.AddTransient<TodosService>();
             services.AddTransient<UserService>();
+            services.AddTransient<TodoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

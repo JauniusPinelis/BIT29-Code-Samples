@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
+using TodoList.Models.Base;
 
 namespace TodoList.Models
 {
-    public class User
+    public class User : Entity
     {
-        public int Id { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

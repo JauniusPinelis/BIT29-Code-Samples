@@ -1,36 +1,39 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using TodoList.Data;
+using TodoList.Dtos;
 using TodoList.Models;
+using TodoList.Repositories;
 
 namespace TodoList.Services
 {
     public class TodosService
     {
-        private DataContext _dataContext;
+        private TodoRepository _todoRepository;
 
-        public TodosService(DataContext dataContext)
+        public TodosService(TodoRepository todoRepository)
         {
-            _dataContext = dataContext;
-            // through dependency injection
+            _todoRepository = todoRepository;
         }
 
         public List<Todo> GetAll()
         {
-            return _dataContext.Todos.ToList();
+            return _todoRepository.GetAll();
         }
 
-        public void Add(Todo todo)
+        public void Delete(int id)
         {
-            _dataContext.Todos.Add(todo);
-            _dataContext.SaveChanges();
+            _todoRepository.Delete(id);
         }
 
-        public void Delete(string name)
+        public void Add(CreateTodoDto createTodoDto)
         {
-            var todo = _dataContext.Todos.FirstOrDefault(t => t.Name == name);
-            _dataContext.Todos.Remove(todo);
-            _dataContext.SaveChanges();
+            // map dto to entity;
+            Todo todo = new Todo
+            {
+                Name = createTodoDto.Todo.Name,
+                Category = createTodoDto.Todo.Category
+            };
+
+            _todoRepository.Add(todo);
         }
     }
 }

@@ -3,14 +3,13 @@ using System.Linq;
 using TodoList.Data;
 using TodoList.Dtos;
 using TodoList.Models;
+using TodoList.Services.Base;
 
 namespace TodoList.Services
 {
-    public class UserService
+    public class UserService : BaseService<User>
     {
-        private DataContext _dataContext;
-
-        public UserService(DataContext dataContext)
+        public UserService(DataContext dataContext) : base(dataContext)
         {
             _dataContext = dataContext;
         }
@@ -25,12 +24,6 @@ namespace TodoList.Services
             }).ToList();
 
             return dtos;
-        }
-
-        public void Add(User user)
-        {
-            _dataContext.Users.Add(user);
-            _dataContext.SaveChanges();
         }
     }
 }

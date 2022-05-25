@@ -33,13 +33,13 @@ namespace TodoList.Controllers
         [HttpPost]
         public IActionResult Add(CreateTodoDto createTodo)
         {
-            _todosService.Add(createTodo.Todo);
+            _todosService.Add(createTodo);
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(string name)
+        public IActionResult Delete(int id)
         {
-            _todosService.Delete(name);
+            _todosService.Delete(id);
             return RedirectToAction("Index");
         }
     }
