@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using WebApiDemo.Exceptions;
 using WebApiDemo.Models;
 using WebApiDemo.Services;
 
@@ -17,40 +17,56 @@ namespace WebApiDemo.Controllers
         }
 
         [HttpGet]
-        public List<ShopItem> GetAll()
+        public IActionResult GetAll()
         {
-            return _shopItemService.GetAll();
+            return Ok(_shopItemService.GetAll());
         }
 
         [HttpGet("{id}")]
-        public ShopItem GetAll(int id)
+        public IActionResult Get(int id)
         {
-            return _shopItemService.Get(id);
+            try
+            {
+                var shopItem = _shopItemService.Get(id);
+                return Ok(shopItem);
+            }
+            catch (ItemNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpPost]
-        public void Create(ShopItem shopItem)
+        public IActionResult Create(ShopItem shopItem)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             _shopItemService.Add(shopItem);
+            return NoContent();
         }
 
         [HttpPut]
-        public void Update(ShopItem shopItem)
+        public IActionResult Update(ShopItem shopItem)
         {
             _shopItemService.Update(shopItem);
+            return NoContent();
         }
 
 
         [HttpPut("{id}/deactivate")]
-        public void Deactivate()
+        public IActionResult Deactivate()
         {
-            // empty
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public void Remove(int id)
+        public IActionResult Remove(int id)
         {
             _shopItemService.Remove(id);
+            return NoContent();
         }
     }
 }

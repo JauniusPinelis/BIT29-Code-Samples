@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WebApiDemo.Exceptions;
 using WebApiDemo.Models;
 
 namespace WebApiDemo.Services
@@ -22,7 +23,13 @@ namespace WebApiDemo.Services
 
         public ShopItem Get(int id)
         {
-            return _shopItems.First(s => s.Id == id);
+            var shopItem = _shopItems.FirstOrDefault(s => s.Id == id);
+            if (shopItem == null)
+            {
+                throw new ItemNotFoundException();
+            }
+
+            return shopItem;
         }
 
         public List<ShopItem> GetAll()
@@ -37,16 +44,16 @@ namespace WebApiDemo.Services
 
         public void Update(ShopItem shopItem)
         {
-            var shopItemToUpdate = _shopItems.First(s => s.Id == shopItem.Id);
+            var shopItemToUpdate = Get(shopItem.Id);
 
             shopItemToUpdate.Name = shopItem.Name;
         }
 
         public void Remove(int id)
         {
-            var shopItemToRemove = _shopItems.First(s => s.Id == id);
+            var shopItem = Get(id);
 
-            _shopItems.Remove(shopItemToRemove);
+            _shopItems.Remove(shopItem);
         }
 
     }
