@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebApiDemo.Data;
 using WebApiDemo.Exceptions;
 using WebApiDemo.Models;
 
@@ -7,23 +9,16 @@ namespace WebApiDemo.Services
 {
     public class ShopItemService
     {
-        private List<ShopItem> _shopItems = new List<ShopItem>()
-        {
-            new ShopItem()
-            {
-                Name = "Ice cream",
-                Id = 1
-            },
-            new ShopItem()
-            {
-                Name = "Candy",
-                Id = 2
-            }
-        };
+        private readonly DataContext _dataContext;
 
-        public ShopItem Get(int id)
+        public ShopItemService(DataContext dataContext)
         {
-            var shopItem = _shopItems.FirstOrDefault(s => s.Id == id);
+            _dataContext = dataContext;
+        }
+
+        public async Task<ShopItem> Get(int id)
+        {
+            var shopItem = await _dataContext.ShopItems.FirstOrDefaultAsync(s => s.Id == id);
             if (shopItem == null)
             {
                 throw new ItemNotFoundException();
@@ -32,28 +27,30 @@ namespace WebApiDemo.Services
             return shopItem;
         }
 
-        public List<ShopItem> GetAll()
+        public async Task<List<ShopItem>> GetAll()
         {
-            return _shopItems;
+            return await _dataContext.ShopItems.ToListAsync();
+
         }
 
-        public void Add(ShopItem shopItem)
+        public async Task Add(ShopItem shopItem)
         {
-            _shopItems.Add(shopItem);
+            _dataContext.ShopItems.Add(shopItem);
+            await _dataContext.SaveChangesAsync();
         }
 
-        public void Update(ShopItem shopItem)
+        public async Task Update(ShopItem shopItem)
         {
-            var shopItemToUpdate = Get(shopItem.Id);
-
-            shopItemToUpdate.Name = shopItem.Name;
+            _dataContext.Update(shopItem);
+            await _dataContext.SaveChangesAsync();
         }
 
-        public void Remove(int id)
+        public async Task Remove(int id)
         {
-            var shopItem = Get(id);
+            var shopItem = await Get(id);
 
-            _shopItems.Remove(shopItem);
+            _dataContext.ShopItems.Remove(shopItem);
+            await _dataContext.SaveChangesAsync();
         }
 
     }

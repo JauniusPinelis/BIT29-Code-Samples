@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using WebApiDemo.Exceptions;
 using WebApiDemo.Models;
 using WebApiDemo.Services;
@@ -17,17 +18,17 @@ namespace WebApiDemo.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return Ok(_shopItemService.GetAll());
+            return Ok(await _shopItemService.GetAll());
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
             try
             {
-                var shopItem = _shopItemService.Get(id);
+                ShopItem shopItem = await _shopItemService.Get(id);
                 return Ok(shopItem);
             }
             catch (ItemNotFoundException ex)
@@ -37,35 +38,35 @@ namespace WebApiDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ShopItem shopItem)
+        public async Task<IActionResult> Create(ShopItem shopItem)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _shopItemService.Add(shopItem);
+            await _shopItemService.Add(shopItem);
             return NoContent();
         }
 
         [HttpPut]
-        public IActionResult Update(ShopItem shopItem)
+        public async Task<IActionResult> Update(ShopItem shopItem)
         {
-            _shopItemService.Update(shopItem);
+            await _shopItemService.Update(shopItem);
             return NoContent();
         }
 
 
         [HttpPut("{id}/deactivate")]
-        public IActionResult Deactivate()
+        public async Task<IActionResult> Deactivate()
         {
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Remove(int id)
+        public async Task<IActionResult> Remove(int id)
         {
-            _shopItemService.Remove(id);
+            await _shopItemService.Remove(id);
             return NoContent();
         }
     }

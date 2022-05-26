@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using WebApiDemo.Data;
 using WebApiDemo.Services;
 
 namespace WebApiDemo
@@ -20,13 +22,17 @@ namespace WebApiDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContext<DataContext>(d => d.UseSqlServer(connectionString));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SwaggerDemo", Version = "v1" });
             });
             services.AddControllers();
 
-            services.AddSingleton<ShopItemService>();
+            services.AddTransient<ShopItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
