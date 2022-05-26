@@ -3,8 +3,9 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace WebApiDemo.Controllers
+namespace SwaggerDemo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -23,7 +24,7 @@ namespace WebApiDemo.Controllers
         }
 
         [HttpGet]
-        public List<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -32,9 +33,7 @@ namespace WebApiDemo.Controllers
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
-            .ToList();
+            .ToArray();
         }
-
-
     }
 }

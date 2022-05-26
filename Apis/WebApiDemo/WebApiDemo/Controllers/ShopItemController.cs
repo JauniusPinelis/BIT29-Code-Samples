@@ -40,6 +40,13 @@ namespace WebApiDemo.Controllers
             _shopItemService.Update(shopItem);
         }
 
+
+        [HttpPut("{id}/deactivate")]
+        public void Deactivate()
+        {
+            // empty
+        }
+
         [HttpDelete("{id}")]
         public void Remove(int id)
         {
