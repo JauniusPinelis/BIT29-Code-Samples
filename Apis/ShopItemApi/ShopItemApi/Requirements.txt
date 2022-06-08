@@ -1,0 +1,15 @@
+﻿Create a asp.net core WEB API (REST):
+This web api allows to modify Todo resources:
+
+Technology requirements:
+1. Todo should have Id, Name and CreatedDate.
+2. Todos should be saved into database.
+3. Should be new project.
+
+Functional requirements:
+1. Allow to create, getAll, GetById, Delete actions using REST actions.
+
+Additional Requirements:
+1. Remove unneeded WeatherForecast functionality.
+2. Introduce Service layer and DTO.
+3. Inspect and review https://github.com/JauniusPinelis/BIT29-Code-Samples/tree/main/Apis/WebApiDemo
