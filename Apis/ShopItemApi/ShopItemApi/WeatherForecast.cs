@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApiDemo
+namespace ShopItemApi
 {
     public class WeatherForecast
     {
