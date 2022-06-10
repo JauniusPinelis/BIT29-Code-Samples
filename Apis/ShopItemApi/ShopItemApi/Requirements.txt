@@ -9,7 +9,11 @@ Technology requirements:
 Functional requirements:
 1. Allow to create, getAll, GetById, Delete actions using REST actions.
 
-Additional Requirements:
-1. Remove unneeded WeatherForecast functionality.
-2. Introduce Service layer and DTO.
-3. Inspect and review https://github.com/JauniusPinelis/BIT29-Code-Samples/tree/main/Apis/WebApiDemo
+-------------------------------------------------------------------------
+
+1. Introduce Controller -> Service -> Repository pattern
+2. Handle not found cases (return 404 with message "todo not found");
+3. Delete should return 204, while Getall return 200 (status code)
+4. Convert your code into async code (async/await)
+5. Introduce Dtos (service, controller should not expose entities)
+6. Use AutoMapper nuget to map Entities to Dtos and Vice versa.
