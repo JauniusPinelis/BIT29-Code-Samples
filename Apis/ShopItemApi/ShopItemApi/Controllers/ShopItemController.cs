@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopItemApi.Models;
-using System.Collections.Generic;
-using System.Linq;
+using ShopItemApi.Dtos;
+using ShopItemApi.Services;
+using System;
+using System.Threading.Tasks;
 
 namespace ShopItemApi.Controllers
 {
@@ -9,36 +10,54 @@ namespace ShopItemApi.Controllers
     [Route("[controller]")]
     public class ShopItemController : ControllerBase
     {
-        private List<ShopItem> _shopItems = new List<ShopItem>()
+        private ShopItemService _shopItemService;
+
+        public ShopItemController(ShopItemService shopItemService)
         {
-            new ShopItem() { Id = 1, Name = "Candy"},
-            new ShopItem() { Id = 2, Name = "Ice Cream"},
-        };
+            _shopItemService = shopItemService;
+        }
 
         [HttpGet]
 
-        public List<ShopItem> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            return _shopItems;
+            return Ok(await _shopItemService.GetAll());
         }
 
         [HttpGet("{id}")]
-        public ShopItem GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            return _shopItems.FirstOrDefault(si => si.Id == id);
+            try
+            {
+                return Ok(await _shopItemService.GetById(id));
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpPost]
-        public void Create(ShopItem shopItem)
+        public async Task<ActionResult> Create(CreateShopItemDto shopItem)
         {
-            _shopItems.Add(shopItem);
+            await _shopItemService.Create(shopItem);
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public List<ShopItem> Remove(int id)
+        public async Task<ActionResult> Remove(int id)
         {
-            _shopItems = _shopItems.Where(s => s.Id != id).ToList();
-            return _shopItems;
+            try
+            {
+                await _shopItemService.GetById(id);
+
+                return NoContent();
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }
