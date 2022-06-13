@@ -5,6 +5,8 @@ Create an Restfull web api to manage Points and PointsLists
 Point (x,y) functionality: Create, Delete, GetAll, Update (assign to pointList)
 PointList (Create, Delete, GetById (with points))
 
+Store data in database.
+
 Schema:
 Point: Id, X, Y, int? PointListId
 
