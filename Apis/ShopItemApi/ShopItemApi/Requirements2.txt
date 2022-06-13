@@ -1,0 +1,13 @@
+﻿The task is based on DevBridge interview task:
+https://trello.com/b/Ly4QaNwt/devbridge-squares
+
+Create an Restfull web api to manage Points and PointsLists
+Point (x,y) functionality: Create, Delete, GetAll, Update (assign to pointList)
+PointList (Create, Delete, GetById (with points))
+
+Schema:
+Point: Id, X, Y, int? PointListId
+
+Additional:
+1. Display Error Message if the X Y already exists
+2. Display Error Message if the pointList does not exist

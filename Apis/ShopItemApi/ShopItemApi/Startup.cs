@@ -28,7 +28,7 @@ namespace ShopItemApi
             services.AddDbContext<DataContext>(c => c.UseSqlServer(defaultConnection));
 
             services.AddTransient<ShopItemService>();
-            services.AddTransient<ShopItemRepository>();
+            services.AddTransient<IShopItemRepository, ShopItemRepository>();
 
             services.AddAutoMapper(typeof(Startup));
 

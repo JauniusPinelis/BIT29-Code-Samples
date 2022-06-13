@@ -9,10 +9,10 @@ namespace ShopItemApi.Services
 {
     public class ShopItemService
     {
-        private readonly ShopItemRepository _shopItemRepository;
+        private readonly IShopItemRepository _shopItemRepository;
         private readonly IMapper _mapper;
 
-        public ShopItemService(ShopItemRepository shopItemRepository, IMapper mapper)
+        public ShopItemService(IShopItemRepository shopItemRepository, IMapper mapper)
         {
             _shopItemRepository = shopItemRepository;
             _mapper = mapper;

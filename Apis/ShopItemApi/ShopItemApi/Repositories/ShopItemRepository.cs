@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopItemApi.Repositories
 {
-    public class ShopItemRepository
+    public class ShopItemRepository : IShopItemRepository
     {
         private readonly DataContext _dataContext;
 
