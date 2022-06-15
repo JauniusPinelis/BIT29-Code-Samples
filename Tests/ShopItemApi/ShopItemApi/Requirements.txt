@@ -1,0 +1,19 @@
+﻿Create a asp.net core WEB API (REST):
+This web api allows to modify Todo resources:
+
+Technology requirements:
+1. Todo should have Id, Name and CreatedDate.
+2. Todos should be saved into database.
+3. Should be new project.
+
+Functional requirements:
+1. Allow to create, getAll, GetById, Delete actions using REST actions.
+
+-------------------------------------------------------------------------
+
+1. Introduce Controller -> Service -> Repository pattern
+2. Handle not found cases (return 404 with message "todo not found");
+3. Delete should return 204, while Getall return 200 (status code)
+4. Convert your code into async code (async/await)
+5. Introduce Dtos (service, controller should not expose entities)
+6. Use AutoMapper nuget to map Entities to Dtos and Vice versa.
