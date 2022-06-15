@@ -3,6 +3,7 @@ using ShopItemApi.Data;
 using ShopItemApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ShopItemApi.Repositories
@@ -18,7 +19,7 @@ namespace ShopItemApi.Repositories
 
         public async Task<List<ShopItem>> GetAll()
         {
-            return await _dataContext.ShopItems.ToListAsync();
+            return await _dataContext.ShopItems.Where(s => !s.Deleted).ToListAsync();
         }
 
         public async Task Create(ShopItem shopItem)
@@ -42,7 +43,10 @@ namespace ShopItemApi.Repositories
         {
             var shopitem = await GetById(id);
 
-            _dataContext.ShopItems.Remove(shopitem);
+            //_dataContext.ShopItems.Remove(shopitem);
+            shopitem.Deleted = true;
+
+            _dataContext.Update(shopitem);
             await _dataContext.SaveChangesAsync();
         }
     }

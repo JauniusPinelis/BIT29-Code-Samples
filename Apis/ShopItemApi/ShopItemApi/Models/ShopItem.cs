@@ -10,6 +10,8 @@ namespace ShopItemApi.Models
 
         public string LastName { get; set; }
 
+        public bool Deleted { get; set; } = false;
+
         public DateTime Created { get; set; } = DateTime.Now;
 
         public string CreateBy { get; set; } = "Admin";
