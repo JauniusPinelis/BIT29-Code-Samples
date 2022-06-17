@@ -1,0 +1,59 @@
+WORK ON YOUR CV
+WORK ON YOUR PORTFOLIO
+
+Interview tasks categories:
+1. Full-stack task -> Razor Web aplikacija
+2. Console application to show simple but extendable code + tests
+3. System integration (get info from external and parse it)
+
+
+What to learn next:
+1. React or Angular (and Javascript ofc)
+https://www.youtube.com/watch?v=3dHNOWTI7H8
+2. Bootstrap (https://getbootstrap.com/)
+3. Front-end + backend API (these solution should be in different folders and in the same repository)
+https://github.com/microsoft/AspNetCore-React-WebApp/tree/main/service
+
+4. Unit Tests (Nunit, Moq, FluentAssertions, AutoFixture -> creates random data)
+5. Learn Interface to replace dependencies with abstractions.
+6. Integration Tests 
+https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0
+
+6.5. Dependency INjection in Console:
+https://andrewlock.net/using-dependency-injection-in-a-net-core-console-application/
+
+7. SOLID Principles:
+S -> Try not to put too much functionality in one method.
+O -> you should be able to extend the functionality with the least code.
+https://code-maze.com/open-closed-principle/#:~:text=The%20Open%20Closed%20Principle%20(OCP,extension%20but%20closed%20for%20modification.
+L -> i dont know.
+I -> Use Interface logically
+D -> Use interface and avoid dependencies.
+
+8. Design patterns: Learn Factory and Strategy patterns.
+
+https://github.com/JauniusPinelis/GildedRose
+
+9. RESTFUL API Design (how to structure your apis)
+
+10. Splitting solution into several projects (Google Clean Architecture, Domain Driven Design)
+https://blog.devgenius.io/explaining-clean-architecture-in-net-core-breakdown-example-f197663964c7
+https://medium.com/dotnet-hub/clean-architecture-with-dotnet-and-dotnet-core-aspnetcore-overview-introduction-getting-started-ec922e53bb97
+
+11. https://www.c-sharpcorner.com/article/differences-between-scoped-transient-and-singleton-service/
+
+12. Scheduled tasks:
+https://stackoverflow.com/questions/7394806/creating-scheduled-tasks
+Hangfire library
+
+
+To be impressive:
+1. MongoDB (document database)
+2. Microservices.
+
+Maybe practice sql?
+
+
+
+
+

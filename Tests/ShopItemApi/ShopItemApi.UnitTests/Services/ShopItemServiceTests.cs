@@ -13,6 +13,12 @@ namespace ShopItemApi.UnitTests.Services
     public class ShopItemServiceTests
     {
         [Test]
+        public void Test2()
+        {
+
+        }
+
+        [Test]
         public async Task Test()
         {
             ///aaa

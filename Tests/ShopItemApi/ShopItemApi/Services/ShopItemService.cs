@@ -19,9 +19,13 @@ namespace ShopItemApi.Services
             _mapper = mapper;
         }
 
+
         public async Task<List<ShopItemDto>> GetAll()
         {
             var entities = await _shopItemRepository.GetAll();
+
+
+
 
             //var dtos = entities.Select(e => new ShopItemDto
             //{
